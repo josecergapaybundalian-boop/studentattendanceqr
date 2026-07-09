@@ -1,0 +1,437 @@
+﻿/* =====================================
+   QR STUDENT ATTENDANCE SYSTEM
+   STUDENTS DATABASE STYLE
+===================================== */
+
+
+/* BODY */
+
+body{
+
+    margin:0;
+
+    padding:20px;
+
+    min-height:100vh;
+
+    font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #0f2027,
+    #203a43,
+    #2c5364
+    );
+
+
+    color:white;
+
+}
+
+
+
+/* MAIN CONTAINER */
+
+.container{
+
+    width:95%;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+
+
+/* TITLE */
+
+h1{
+
+    font-size:32px;
+
+    margin-bottom:25px;
+
+    text-shadow:
+    0 4px 10px rgba(0,0,0,.5);
+
+}
+
+
+
+/* SEARCH BOX */
+
+#search{
+
+
+    width:90%;
+
+    max-width:500px;
+
+
+    padding:15px;
+
+
+    margin-bottom:20px;
+
+
+    border:none;
+
+
+    border-radius:15px;
+
+
+    font-size:16px;
+
+
+    outline:none;
+
+
+}
+
+
+
+/* TABLE CONTAINER */
+
+.table-container{
+
+    overflow-x:auto;
+
+}
+
+
+
+/* TABLE */
+
+table{
+
+
+    width:100%;
+
+
+    border-collapse:collapse;
+
+
+    background:white;
+
+
+    color:black;
+
+
+    border-radius:15px;
+
+
+    overflow:hidden;
+
+
+    box-shadow:
+
+    0 10px 25px
+
+    rgba(0,0,0,.4);
+
+
+}
+
+
+
+/* TABLE HEADER */
+
+th{
+
+
+    background:
+
+
+    linear-gradient(
+
+    90deg,
+
+    #0072ff,
+
+    #00c6ff
+
+    );
+
+
+    color:white;
+
+
+    padding:15px;
+
+
+    font-size:16px;
+
+
+}
+
+
+
+/* TABLE DATA */
+
+td{
+
+
+    padding:12px;
+
+
+    border-bottom:
+
+    1px solid #ddd;
+
+
+}
+
+
+
+/* ROW EFFECT */
+
+tr:hover{
+
+
+    background:#f2f2f2;
+
+
+}
+
+
+
+/* BUTTON */
+
+button{
+
+
+    padding:12px 18px;
+
+
+    margin:8px;
+
+
+    border:none;
+
+
+    border-radius:12px;
+
+
+    font-size:15px;
+
+
+    cursor:pointer;
+
+
+    color:white;
+
+
+    background:
+
+
+    linear-gradient(
+
+    90deg,
+
+    #00c6ff,
+
+    #0072ff
+
+    );
+
+
+    transition:.3s;
+
+
+}
+
+
+
+button:hover{
+
+
+    transform:scale(1.05);
+
+
+}
+
+
+
+/* DELETE BUTTON */
+
+td button{
+
+
+    background:
+
+
+    linear-gradient(
+
+    90deg,
+
+    #ff416c,
+
+    #ff4b2b
+
+    );
+
+
+    padding:8px 12px;
+
+
+}
+
+
+
+/* REGISTER BUTTON */
+
+.register-btn{
+
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    #11998e,
+
+    #38ef7d
+
+    );
+
+
+}
+
+
+
+/* BACK BUTTON */
+
+.back-btn{
+
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    #8e2de2,
+
+    #4a00e0
+
+    );
+
+
+}
+
+
+
+/* EMPTY DATABASE */
+
+.empty{
+
+
+    padding:20px;
+
+    background:white;
+
+    color:black;
+
+    border-radius:15px;
+
+}
+
+
+
+/* MOBILE DESIGN */
+
+@media(max-width:768px){
+
+
+body{
+
+    padding:10px;
+
+}
+
+
+h1{
+
+    font-size:24px;
+
+}
+
+
+
+table{
+
+    font-size:13px;
+
+}
+
+
+
+th,
+td{
+
+    padding:8px;
+
+}
+
+
+
+button{
+
+
+    width:90%;
+
+
+    font-size:14px;
+
+
+}
+
+
+
+}
+
+
+
+/* SMALL MOBILE */
+
+@media(max-width:480px){
+
+
+
+table{
+
+
+    display:block;
+
+
+    overflow-x:auto;
+
+
+    white-space:nowrap;
+
+
+}
+
+
+
+input{
+
+
+    width:85%;
+
+
+}
+
+
+
+}

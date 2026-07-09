@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>
+Student Registration
+</title>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link rel="stylesheet" href="style.css">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+</script>
+
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>
+👨‍🎓 Student Registration
+</h1>
+
+
+<label>
+Student ID
+</label>
+
+<input 
+type="text"
+id="studentID"
+placeholder="Enter Student ID">
+
+
+
+<label>
+Student Name
+</label>
+
+<input
+type="text"
+id="studentName"
+placeholder="Enter Student Name">
+
+
+
+<label>
+Class / Section
+</label>
+
+<select id="studentClass">
+
+<option>
+VC 1/5
+</option>
+
+<option>
+VC 2/5
+</option>
+
+<option>
+VC 3/5
+</option>
+
+</select>
+
+
+
+<button onclick="registerStudent()">
+REGISTER STUDENT
+</button>
+
+
+
+<h2>
+Student QR Code
+</h2>
+
+
+<div id="qrcode"></div>
+
+
+
+<button onclick="downloadQR()">
+DOWNLOAD QR CODE
+</button>
+
+
+
+<br>
+
+
+<button onclick="location.href='index.html'">
+BACK HOME
+</button>
+
+
+
+</div>
+
+
+
+<script>
+
+
+function registerStudent()
+{
+
+
+let id =
+document.getElementById("studentID").value;
+
+
+let name =
+document.getElementById("studentName").value;
+
+
+let studentClass =
+document.getElementById("studentClass").value;
+
+
+
+if(id=="" || name=="")
+{
+
+alert(
+"Please complete student information"
+);
+
+return;
+
+}
+
+
+
+let student =
+{
+
+id:id,
+
+name:name,
+
+class:studentClass,
+
+qr:
+"STUDENT-"+id
+
+
+};
+
+
+
+let students =
+JSON.parse(
+localStorage.getItem("students")
+)
+|| [];
+
+
+
+students.push(student);
+
+
+
+localStorage.setItem(
+"students",
+JSON.stringify(students)
+);
+
+
+
+document.getElementById("qrcode").innerHTML="";
+
+
+
+new QRCode(
+
+document.getElementById("qrcode"),
+
+{
+
+text:
+student.qr,
+
+width:220,
+
+height:220
+
+
+}
+
+);
+
+
+
+alert(
+"Student Registered Successfully"
+);
+
+
+
+}
+
+
+
+function downloadQR()
+{
+
+
+let img =
+document.querySelector("#qrcode img");
+
+
+
+if(img)
+{
+
+
+let link =
+document.createElement("a");
+
+
+link.href =
+img.src;
+
+
+link.download =
+"Student_QR.png";
+
+
+link.click();
+
+
+}
+
+else
+{
+
+
+alert(
+"Generate QR Code First"
+);
+
+
+}
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>

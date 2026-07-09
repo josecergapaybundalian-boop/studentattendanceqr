@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>
+QR Attendance Scanner
+</title>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<link rel="stylesheet" href="scanner.css">
+
+
+<!-- QR Scanner Library -->
+<script src="https://unpkg.com/html5-qrcode">
+</script>
+
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>
+📷 Student Attendance Scanner
+</h1>
+
+
+<p id="status">
+Camera is not started
+</p>
+
+
+<button id="startCamera">
+START CAMERA
+</button>
+
+
+<div id="reader"></div>
+
+
+<div class="result">
+
+
+<h2>
+Scan Result
+</h2>
+
+
+<p id="studentResult">
+Waiting for QR Code...
+</p>
+
+
+</div>
+
+
+
+<button onclick="location.href='index.html'">
+BACK HOME
+</button>
+
+
+
+</div>
+
+
+
+<script>
+
+
+let scanner;
+
+
+
+const startButton =
+document.getElementById(
+"startCamera"
+);
+
+
+
+startButton.onclick=function(){
+
+
+
+startButton.disabled=true;
+
+
+document.getElementById(
+"status"
+).innerHTML =
+"Opening Camera...";
+
+
+
+scanner =
+new Html5QrcodeScanner(
+
+"reader",
+
+{
+
+
+fps:10,
+
+
+qrbox:
+{
+width:250,
+height:250
+},
+
+
+rememberLastUsedCamera:true
+
+
+},
+
+
+false
+
+
+);
+
+
+
+scanner.render(
+
+function(decodedText){
+
+
+
+document.getElementById(
+"studentResult"
+).innerHTML =
+
+"Student QR ID: "
++
+decodedText;
+
+
+
+saveAttendance(decodedText);
+
+
+
+scanner.clear();
+
+
+
+document.getElementById(
+"status"
+).innerHTML =
+"Attendance Completed";
+
+
+
+},
+
+
+
+function(errorMessage){
+
+
+console.log(errorMessage);
+
+
+}
+
+
+
+);
+
+
+
+};
+
+
+
+function saveAttendance(id)
+{
+
+
+let attendance =
+JSON.parse(
+
+localStorage.getItem(
+"attendance"
+)
+
+)
+|| [];
+
+
+
+let record =
+{
+
+
+studentID:id,
+
+
+date:
+new Date()
+.toLocaleDateString(),
+
+
+time:
+new Date()
+.toLocaleTimeString(),
+
+
+status:
+"Present"
+
+
+};
+
+
+
+attendance.push(record);
+
+
+
+localStorage.setItem(
+
+"attendance",
+
+JSON.stringify(attendance)
+
+);
+
+
+
+alert(
+"✅ Attendance Recorded"
+);
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
